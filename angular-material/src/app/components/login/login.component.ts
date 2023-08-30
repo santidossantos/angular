@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   form: FormGroup;
+  loading: boolean = false; // Para controlar el spinner
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
     this.form = this.fb.group({
       user: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -19,6 +21,29 @@ export class LoginComponent {
   ngOnInit() {}
 
   login() {
-    console.log(this.form);
+    const usuario = this.form.value.user;
+    const password = this.form.value.password;
+
+    if (usuario === 'juan' && password === '123456') {
+      this.fakeLoading();
+    } else {
+      this.onError();
+      this.form.reset();
+    }
+  }
+
+  onError() {
+    this._snackBar.open('Usuario o contraseña inválidos', '', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
+  }
+
+  fakeLoading() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
   }
 }

@@ -23,3 +23,7 @@
   width: 100%;
   height: 50px;
 }
+
+.spinner {
+  margin: 0 auto;  /* Otra forma de centrar */
+}
