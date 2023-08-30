@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,11 @@ export class LoginComponent {
   form: FormGroup;
   loading: boolean = false; // Para controlar el spinner
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
+  constructor(
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       user: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -43,6 +48,7 @@ export class LoginComponent {
   fakeLoading() {
     this.loading = true;
     setTimeout(() => {
+      this.router.navigate(['dashboard']);
       this.loading = false;
     }, 1500);
   }
