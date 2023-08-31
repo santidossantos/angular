@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Menu } from 'src/app/interfaces/menu';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -6,16 +7,18 @@ import { MenuService } from 'src/app/services/menu.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  menuItems: Menu[] = [];
+
   constructor(private _menuService: MenuService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadMenu();
   }
 
   loadMenu() {
     this._menuService.getMenu().subscribe((data) => {
-      console.log(data);
+      this.menuItems = data;
     });
   }
 }
