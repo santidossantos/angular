@@ -8,7 +8,7 @@ import { MenuService } from 'src/app/services/menu.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  menuItems: Menu[] = [];
+  menuItems: Menu[] = []; // Trae los elementos del menu definido en assets, menu dinamico :)
 
   constructor(private _menuService: MenuService) {}
 
