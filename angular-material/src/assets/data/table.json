@@ -1,0 +1,17 @@
+[
+  {
+    "user": "user",
+    "surname": "surname",
+    "gender": "gender"
+  },
+  {
+    "user": "Juan",
+    "surname": "Perez",
+    "gender": "Male"
+  },
+  {
+    "user": "Cath",
+    "surname": "Gaitan",
+    "gender": "Female"
+  }
+]
