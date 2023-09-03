@@ -56,3 +56,13 @@ th {
 .empty-table-message {
   text-align: center;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+button {
+    min-width: 220px;
+}
