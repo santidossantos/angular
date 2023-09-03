@@ -22,21 +22,18 @@
 
 table {
   background-color: rgb(255, 248, 236);
-  box-shadow: none;
 }
 
 th {
   width: 20%;
-  text-align: center;
 }
 
-td {
-  text-align: center;
+.th-actions{
+    text-align: center;
 }
 
 .actions-container {
   display: flex;
-  justify-content: center;
   justify-content: space-around;
 }
 
@@ -53,5 +50,5 @@ td {
 }
 
 .paginator {
-    background-color: rgb(255, 248, 236);
+  background-color: rgb(255, 248, 236);
 }

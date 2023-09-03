@@ -1,28 +1,8 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { User } from 'src/app/interfaces/user';
 import { MatPaginator } from '@angular/material/paginator';
-
-const ELEMENT_DATA: User[] = [
-  {
-    username: 'juanchito',
-    name: 'Juan',
-    surname: 'Perez',
-    gender: 'Masculino',
-  },
-  {
-    username: 'unix_cath',
-    name: 'Catalina',
-    surname: 'Gaitan',
-    gender: 'Femenino',
-  },
-  {
-    username: 'CR7',
-    name: 'Cristiano',
-    surname: 'Ronaldo',
-    gender: 'Masculino',
-  },
-];
+import { MatSort } from '@angular/material/sort';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -30,19 +10,27 @@ const ELEMENT_DATA: User[] = [
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent {
-  displayedColumns: string[] = [
-    'username',
-    'name',
-    'surname',
-    'gender',
-    'actions',
-  ];
-  dataSource = new MatTableDataSource<User>(ELEMENT_DATA);
-
+  displayedColumns: string[] = ['username', 'name', 'surname', 'gender', 'actions'];
+  dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  ngAfterViewInit() {
+  constructor(private _userService: UserService) {}
+
+  ngOnInit() {
+    this.loadTableContent();
+  }
+
+  loadTableContent() {
+    this._userService.getTableContent().subscribe((data) => {
+      this.initializeDataSource(data);
+    });
+  }
+
+  initializeDataSource(data: any[]) {
+    this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

@@ -1,0 +1,20 @@
+[
+  {
+    "username": "juanchito",
+    "name": "Juan",
+    "surname": "Perez",
+    "gender": "Masculino"
+  },
+  {
+    "username": "unix_cath",
+    "name": "Cath",
+    "surname": "Gaitan",
+    "gender": "Femenino"
+  },
+  {
+    "username": "CR7",
+    "name": "Cristiano",
+    "surname": "Ronaldo",
+    "gender": "Masculino"
+  }
+]
