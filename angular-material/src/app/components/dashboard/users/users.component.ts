@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-users',
@@ -11,12 +12,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent {
   displayedColumns: string[] = ['username', 'name', 'surname', 'gender', 'actions'];
-  tableContent: any[] = [];
+  tableContent: any[] = [''];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _userService: UserService) {}
+  constructor(private _userService: UserService, private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.loadTableContent();
@@ -43,5 +44,8 @@ export class UsersComponent {
   deleteUser(id: number) {
     this.tableContent.splice(id, 1) // Simulacion de eliminar
     this.initializeDataSource(this.tableContent) // Recargamos la tabla
+    this._snackBar.open('User succesfully deleted', '', {
+      duration: 3000
+    })
   }
 }

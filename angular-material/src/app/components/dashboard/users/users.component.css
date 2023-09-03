@@ -28,8 +28,8 @@ th {
   width: 20%;
 }
 
-.th-actions{
-    text-align: center;
+.th-actions {
+  text-align: center;
 }
 
 .actions-container {
@@ -51,4 +51,8 @@ th {
 
 .paginator {
   background-color: rgb(255, 248, 236);
+}
+
+.empty-table-message {
+  text-align: center;
 }
