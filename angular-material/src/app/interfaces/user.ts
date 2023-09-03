@@ -1,6 +1,6 @@
-export interface user {
-    username : string;
-    name : string;
-    surname : string;
-    gender : string;
+export interface User {
+  username: string;
+  name: string;
+  surname: string;
+  gender: string;
 }

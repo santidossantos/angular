@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-// Angular Material
+/*                                  *
+ *        Angular Material           *
+ *                                   */
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -31,6 +34,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     HttpClientModule,
     MatTableModule,
     MatTooltipModule,
+    MatPaginatorModule,
   ],
   exports: [
     CommonModule,
@@ -46,6 +50,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     HttpClientModule,
     MatTableModule,
     MatTooltipModule,
+    MatPaginatorModule,
   ],
 })
 export class SharedModule {}
