@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent {
   displayedColumns: string[] = ['username', 'name', 'surname', 'gender', 'actions'];
+  tableContent: any[] = [];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -28,7 +29,8 @@ export class UsersComponent {
   }
 
   initializeDataSource(data: any[]) {
-    this.dataSource = new MatTableDataSource(data);
+    this.tableContent = data;
+    this.dataSource = new MatTableDataSource(this.tableContent);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -36,5 +38,10 @@ export class UsersComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  deleteUser(id: number) {
+    this.tableContent.splice(id, 1) // Simulacion de eliminar
+    this.initializeDataSource(this.tableContent) // Recargamos la tabla
   }
 }
