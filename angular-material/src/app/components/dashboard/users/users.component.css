@@ -1,13 +1,45 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .table-container {
-    display: flex;
-    justify-content: center;
-    width: 98%;
-    height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80%;
+  height: 90%;
+}
+
+table {
+  background-color: rgb(255, 248, 236);
+}
+
+th {
+  width: 20%;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.action-edit {
+    color: darkblue;
+}
+
+.action-delete {
+    color: brown;
+}
+
+.pointer {
+    cursor: pointer;
 }
