@@ -1,0 +1,47 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <form>
+        <mat-grid-list cols="4" rowHeight="70px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="input">
+              <mat-label>Input</mat-label>
+              <input matInput formControlName="user" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="5">
+            <img src="../../../../../assets/img/user.png" width="250" height="250">
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="input">
+              <mat-label>Input</mat-label>
+              <input matInput formControlName="user" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="input">
+              <mat-label>Input</mat-label>
+              <input matInput formControlName="user" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="input">
+              <mat-label>Select me</mat-label>
+              <mat-select>
+                <mat-option value="option">Option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-flat-button color="primary">CREAR USUARIO</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
